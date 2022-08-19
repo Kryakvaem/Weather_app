@@ -1,10 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'weater/template.html' %}
+{% block content %}
+
+<div class= 'container'>
+	<div class="row">
+		<h2>Выберите следующие действия</h2>
+		<div class="col-sm-9 col-md-4 mb-30">
+			<h3><i class="fa fa-table" aria-hidden="true"></i> Таблица погоды в популярных городах</h3>
+			<div class="list-group w-auto">
+  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+    <div class="d-flex gap-2 w-100 justify-content-between">
+        <h4 class="mb-0">Фильтрация</h4>
+		<p class="mb-0 opacity-75"><i class="fa fa-bolt" aria-hidden="true"></i> Возможность фильтрации данных в таблице через форму фильтра для [Город|Дата]</p>
+    </div>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+    <div class="d-flex gap-2 w-100 justify-content-between">
+      <div>
+        <h4 class="mb-0">Таблица</h4>
+        <p class="mb-0 opacity-75"><i class="fa fa-bolt" aria-hidden="true"></i> Информация о погоде представлена в удобной таблице [Город|Дата|Час|Температура]</p>
+      </div>
+    </div>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+    <div class="d-flex gap-2 w-100 justify-content-between">
+      <div>
+        <h4 class="mb-0">Пагинация</h4>
+        <p class="mb-0 opacity-75"><i class="fa fa-bolt" aria-hidden="true"></i> Возможность смотреть погоду в определенный городе на отдельной странице</p>
+      </div>
+    </div>
+  </a>
+  <a href="#" id='btn-choose' class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+    <div class="d-flex gap-2 w-100 justify-content-between">
+      <button onclick="document.location.href={% url 'post_table'%}">Построить таблицу</button>
+    </div>
+  </a>
+</div>
+		</div>
+		<div class="col-sm-9 col-md-4 mb-30">
+			<h3><i class="fa fa-signal"></i>Графики температуры в популярных городах</h3>
+								<div class="list-group w-auto">
+					  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+						<div class="d-flex gap-2 w-100 justify-content-between">
+							<h4 class="mb-0">Город</h4>
+							<p class="mb-0 opacity-75"><i class="fa fa-bolt" aria-hidden="true"></i> Возможность строить график температуры в определенном городе</p>
+						</div>
+					  </a>
+					  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+						<div class="d-flex gap-2 w-100 justify-content-between">
+						  <div>
+							<h4 class="mb-0">Температура</h4>
+							<p class="mb-0 opacity-75"><i class="fa fa-bolt" aria-hidden="true"></i> Возможность отследить изменения температуры в графике</p>
+						  </div>
+						</div>
+					  </a>
+					  <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+						<div class="d-flex gap-2 w-100 justify-content-between">
+						  <div>
+							<h4 class="mb-0">Дата</h4>
+							<p class="mb-0 opacity-75"><i class="fa fa-bolt" aria-hidden="true"></i> Возможность смотреть погоду в определеннный промежуток времени</p>
+						  </div>
+						</div>
+					  </a>
+					  <a href="#" id='btn-choose' class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+						<div class="d-flex gap-2 w-100 justify-content-between">
+                            <button onclick="document.location.href={% url 'post_chart'%}">Построить график</button>
+
+						</div>
+					  </a>
+					</div>
+
+		</div>
+	</div>
+</div>
+
+{% endblock %}

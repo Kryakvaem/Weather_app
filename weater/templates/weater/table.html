@@ -1,0 +1,91 @@
+{% extends 'weater/template.html' %}
+{% block content %}
+
+ <div class= 'container'>
+	<div class="row">
+		<h3><i class="fa fa-signal"></i>Таблица температуры в популярных городах</h3>
+			 <table class="table table-hover  table-bordered" id="filter-table">
+                    <thead class="table-bordered ">
+                        <tr class="table-bordered info ">
+                           <div><th scope="col">Город
+                                 <input type="text"  id="city_find" class="table-filters" placeholder="Введите город" aria-label="Input group example">
+                                <button type="button"  class="btn btn-default btn-sm custom" onclick="myFunction1()" ><i class="fas fa-search"></i></button>
+
+                            </th></div>
+                            <th scope="col">Дата
+                            <input type="text"   id="datepicker" class="table-filters" placeholder="Введите дату" aria-label="Input group example">
+                            <button type="button"  class="btn btn-default btn-sm custom" onclick="myFunction()" ><i class="fas fa-search"></i></button>
+                            </th>
+                            <th scope="col">Температура</th>
+                        </tr>
+                    </thead>
+        <tbody id='myTable'>
+                {% for data in page_obj %}
+                        <tr class='table-data info'>
+                        <td>{{ data.city_name_weather }}</a></td>
+                        <td>{{ data.data }}</a></td>
+                        <td>{{ data.temperature}}</a></td>
+                        </tr>
+            {% endfor %}
+        </tbody>
+             </table>
+	</div>
+</div>
+
+ <script>
+
+  $( function() {
+      $.datepicker.formatDate( "yy-mm-dd");
+    $( "#datepicker" ).datepicker({ dateFormat: 'M. d, yy'});
+
+
+
+
+  } );
+
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("datepicker");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("filter-table");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+function myFunction1() {
+  // Declare variables
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("city_find");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("filter-table");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+ </script>
+
+    {% include "weater/pagination.html" with page=my_weth %}
+
+{% endblock %}

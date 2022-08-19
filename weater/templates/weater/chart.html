@@ -1,0 +1,54 @@
+{% extends 'weater/template.html' %}
+{% block content %}
+<div class= 'container'>
+	<div class="row">
+		<h3><i class="fa fa-signal"></i>Графики температуры в популярных городах</h3>
+		<div class="col-sm-9 col-md-4 mb-30">
+		<form class="chart__data" action="#" method="GET">
+		<h3>Выберите город:</h3>
+        <div class="chart__input-group">
+		<input class="chart__input input-field" type="radio" name="city" id="City1" value="Moscow" required >
+          <label class="chart__label" for="City1">Moscow</label>
+        </div>
+
+        <div class="chart__input-group">
+          <input class="chart__input input-field" type="radio" name="city" id="City2" value="London">
+          <label class="chart__label" for="City2">London</label>
+        </div>
+
+        <div class="chart__input-group">
+          <input class="chart__input input-field" type="radio" name="city" id="City3" value="Vancouver">
+		  <label class="chart__label" for="City3">Vancouver</label>
+        </div>
+
+
+		<div class="form"><h3>Выберите дату:</h3>
+			<input type="text"  id="datepicker" class="form-control" placeholder="Введите дату" aria-label="Input group example" required>
+		</div>
+		<input class="chart__submit-button" type="submit" value="Показать график">
+	  </form>
+		</div>
+
+		<div class="col-sm-9 col-md-4 mb-30">
+			<div class="chart__canvas-wrapper">
+
+
+<canvas id="speedChart" width="600" height="400"></canvas>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+    <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+
+<script>
+
+</script>
+
+{% endblock %}

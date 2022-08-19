@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WeatherApi - Ваш проводник в мир погоды</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha512-Dop/vW3iOtayerlYAqCgkVr2aTr2ErwwTYOvRFUpzl2VhCMJyjQF0Q9TjUXIo6JhuM/3i0vVEt2e/7QQmnHQqw==" crossorigin="anonymous">
+	<link rel="shortcut icon" href="/images/favicon.png" type="image/png">
+	<link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script src="https://cdnjs.com/libraries/Chart.js"></script>
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js">
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+
+</head>
+
+<body>
+<header>
+	<h1><i class="fa fa-thermometer-quarter" aria-hidden="true"></i> WeatherApp - Ваш проводник в хорошую погоду</h1>
+</header>
+ {% block content %}
+
+
+ {% endblock %}
+
+<footer class="footer-section">
+        <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-4">
+
+                            <div class="cta-text">
+                                <h4> <i class="fa fa-camera-retro fa-lg"> </i> Найти нас можно по адресу </h4>
+                                <span><a href="https://yandex.ru/maps/-/CCUR6KBG2A">
+                                    Пушкинская ул., 10, Мурманск </a><span>
+                            </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                            <div class="cta-text">
+                                 <h4><i class="fa fa-phone"> </i> Наши контакты </h4>
+                                <span> <a href="tel:+79113261341">+7(911)-326-13-41</a></span>
+                            </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+
+                            <div class="cta-text">
+                                <h4> <i class="far fa-envelope-open"> </i> Связаться с нами </h4>
+                                <span> <a href="mailto:shvetsekaterina1998@ya.ru">shvetsekaterina1998@ya.ru </a></span>
+                            </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+					<p class="text-center text-muted">© 2022 Кряква, Все права защищены</p>
+                </div>
+        </div>
+   </footer>
+</body>
+</html>
