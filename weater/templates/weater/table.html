@@ -16,6 +16,7 @@
                             <input type="text"   id="datepicker" class="table-filters" placeholder="Введите дату" aria-label="Input group example">
                             <button type="button"  class="btn btn-default btn-sm custom" onclick="myFunction()" ><i class="fas fa-search"></i></button>
                             </th>
+                            <th scope="col">Время</th>
                             <th scope="col">Температура</th>
                         </tr>
                     </thead>
@@ -24,6 +25,7 @@
                         <tr class='table-data info'>
                         <td>{{ data.city_name_weather }}</a></td>
                         <td>{{ data.data }}</a></td>
+                            <td>{{ data.time}}</a></td>
                         <td>{{ data.temperature}}</a></td>
                         </tr>
             {% endfor %}
@@ -37,10 +39,6 @@
   $( function() {
       $.datepicker.formatDate( "yy-mm-dd");
     $( "#datepicker" ).datepicker({ dateFormat: 'M. d, yy'});
-
-
-
-
   } );
 
 function myFunction() {

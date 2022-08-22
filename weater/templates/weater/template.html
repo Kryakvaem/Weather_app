@@ -6,7 +6,7 @@
 	<title>WeatherApi - Ваш проводник в мир погоды</title>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha512-Dop/vW3iOtayerlYAqCgkVr2aTr2ErwwTYOvRFUpzl2VhCMJyjQF0Q9TjUXIo6JhuM/3i0vVEt2e/7QQmnHQqw==" crossorigin="anonymous">
-	<link rel="shortcut icon" href="/images/favicon.png" type="image/png">
+	<link rel="shortcut icon" href= {% static "/images/favicon.png" %} type="image/png">
 	<link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -14,15 +14,15 @@
 	<script src="https://cdnjs.com/libraries/Chart.js"></script>
 	<link rel="stylesheet" href="/resources/demos/style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js">
     <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
 </head>
 
 <body>
-<header>
+<a href={% url 'post_list'%}><header>
 	<h1><i class="fa fa-thermometer-quarter" aria-hidden="true"></i> WeatherApp - Ваш проводник в хорошую погоду</h1>
-</header>
+</header></a>
  {% block content %}
 
 

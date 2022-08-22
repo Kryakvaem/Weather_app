@@ -4,7 +4,8 @@
 	<div class="row">
 		<h3><i class="fa fa-signal"></i>Графики температуры в популярных городах</h3>
 		<div class="col-sm-9 col-md-4 mb-30">
-		<form class="chart__data" action="#" method="GET">
+		<form class="chart__data" action="#" method="GET">{% csrf_token %}
+            {{ form. }}
 		<h3>Выберите город:</h3>
         <div class="chart__input-group">
 		<input class="chart__input input-field" type="radio" name="city" id="City1" value="Moscow" required >
@@ -23,32 +24,55 @@
 
 
 		<div class="form"><h3>Выберите дату:</h3>
-			<input type="text"  id="datepicker" class="form-control" placeholder="Введите дату" aria-label="Input group example" required>
+			<input type="text" name="data_form" id="datepicker" class="form-control" placeholder="Введите дату" aria-label="Input group example" required>
 		</div>
 		<input class="chart__submit-button" type="submit" value="Показать график">
 	  </form>
 		</div>
 
 		<div class="col-sm-9 col-md-4 mb-30">
-			<div class="chart__canvas-wrapper">
-
-
-<canvas id="speedChart" width="600" height="400"></canvas>
-
-
-			</div>
+<canvas id="Chart" width="600" height="400"></canvas>
 		</div>
 	</div>
 </div>
 
     <script>
-  $( function() {
-    $( "#datepicker" ).datepicker();
+   $( function() {
+      $.datepicker.formatDate( "yy-mm-dd");
+    $( "#datepicker" ).datepicker({ dateFormat: 'M. d, yy'});
   } );
   </script>
 
 <script>
+var ChartCanvas = document.getElementById("Chart");
 
+Chart.defaults.global.defaultFontFamily = "Lato";
+Chart.defaults.global.defaultFontSize = 18;
+
+var ChartData = {
+    labels: [{% for data1 in labels %}'{{data1}}',{% endfor%}],
+    datasets: [{
+    label: "Суточная температура",
+        data:[{% for data1 in data_chart %}{{data1}},{% endfor%}],
+  }]
+};
+
+var chartOptions = {
+  legend: {
+    display: true,
+    position: 'top',
+    labels: {
+      boxWidth: 50,
+      fontColor: 'black'
+    }
+  }
+};
+
+var lineChart = new Chart(ChartCanvas, {
+  type: 'line',
+  data: ChartData,
+  options: chartOptions
+});
 </script>
 
 {% endblock %}
